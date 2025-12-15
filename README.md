@@ -2,10 +2,11 @@
 
 ===================================================================
 
-| Names           | Roles                          |
-|-----------------|--------------------------------|
-| Sneha M S       | LFU (Least Frequently Used)    |
-| Vismaya         | LRU (Least Recently Used)      |
-| Subin           | Set Associative Mapping        |
-| Vivek           | FIFO (First In First Out)      |
-| Theertha Raju                          
+| Names                 | Roles                          |
+|-----------------------|--------------------------------|
+| Sneha M S             | LFU (Least Frequently Used)    |
+| Vismaya Koorma        | LRU (Least Recently Used)      |
+| Subin                 | Set Associative Mapping        |
+| Vivek                 | FIFO (First In First Out)      |
+| Theertha Raju         |Direct Mapping                  |
+
