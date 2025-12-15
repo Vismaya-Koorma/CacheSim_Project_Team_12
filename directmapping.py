@@ -1,24 +1,28 @@
-# Direct Mapping Cache Replacement Algorithm
-cache_size = int(input("Enter cache size: "))
-cache = [-1] * cache_size
+# Direct Mapping Page Replacement Algorithm
 
-n = int(input("Enter number of memory blocks: "))
-blocks = list(map(int, input("Enter memory block sequence: ").split()))
+def direct_mapping(page_frames, page_sequence):
+    n = len(page_frames)
+    memory = [-1] * n  # Initialize memory frames with -1 (empty)
+    hits = 0
+    misses = 0
 
-hit = 0
-miss = 0
+    for page in page_sequence:
+        index = page % n  # Direct mapping index
+        if memory[index] == page:
+            hits += 1
+            print(f"Page {page} already in memory at frame {index} -> HIT")
+        else:
+            misses += 1
+            print(f"Page {page} loaded into frame {index} -> MISS")
+            memory[index] = page
+        
+        print(f"Memory State: {memory}\n")
+    
+    print(f"Total Hits: {hits}")
+    print(f"Total Misses: {misses}")
 
-for block in blocks:
-    index = block % cache_size
+# Example Usage
+frames = int(input("Enter number of memory frames: "))
+pages = list(map(int, input("Enter page sequence separated by spaces: ").split()))
 
-    if cache[index] == block:
-        print(f"Block {block} → Cache HIT")
-        hit += 1
-    else:
-        print(f"Block {block} → Cache MISS (placed in line {index})")
-        cache[index] = block
-        miss += 1
-
-print("\nFinal Cache State:", cache)
-print("Total Hits :", hit)
-print("Total Miss:", miss)
+direct_mapping([0]*frames, pages)
